@@ -1,3 +1,4 @@
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -41,7 +42,15 @@ class SauceDemoLoginTest {
         user.can(BrowseTheWeb.with(hisBrowser));
         user.attemptsTo(
                 Open.url(pages.getDefaultBaseUrl()),
-                Login.withCredentials(username, password) // Use the imported Login class
+                Login.withCredentials(username, password)// Use the imported Login class
         );
+
+        try {
+            // Espera de 10 segundos
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
+
