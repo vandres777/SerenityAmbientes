@@ -34,7 +34,7 @@ jobs:
       run: mvn clean install
 
     - name: Run tests
-      run: mvn verify
+      run: mvn verify -Dserenity.outputDirectory=target/site/serenity
       continue-on-error: true
 
     - name: List target directory for debugging
@@ -42,6 +42,9 @@ jobs:
 
     - name: List target/site directory for debugging
       run: ls -R target/site
+
+    - name: List target/site/serenity directory for debugging
+      run: ls -R target/site/serenity
 
     - name: Upload test results
       if: always()
