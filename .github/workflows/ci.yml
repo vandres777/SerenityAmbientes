@@ -37,6 +37,9 @@ jobs:
       run: mvn verify
       continue-on-error: true
 
+    - name: List target directory for debugging
+      run: ls -R target
+
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
