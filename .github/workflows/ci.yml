@@ -40,6 +40,9 @@ jobs:
     - name: List target directory for debugging
       run: ls -R target
 
+    - name: List target/site directory for debugging
+      run: ls -R target/site
+
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
